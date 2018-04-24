@@ -90,9 +90,15 @@
 						<form>
 							<input class="input search-input" type="text" placeholder="Masukan Kata Kunci">
 							<select class="input search-categories" style="width: 140px;">
+
 								<option value="0">Semua Kategori</option>
-								<option value="1">Category 01</option>
-								<option value="1">Category 02</option>
+											<?php 
+    foreach ($hasil as $category)
+        {
+      ?>  
+								<option value="<?php echo $category->id_kategori_brg ?>"><?php echo $category->nama_kategori_brg ?></option>
+
+<?php } ?>
 							</select>
 							<button class="search-btn"><i class="fa fa-search"></i></button>
 						</form>
@@ -468,7 +474,7 @@
 					<div class="banner banner-1">
 						<img src="./assets/img/banner02.jpg" alt="">
 						<div class="banner-caption">
-							<h1 class="primary-color">Kami Jual Harga Jujur<br><span class="white-color font-weak">Up to 50% OFF</span></h1>
+							<h1 class="primary-color">Kami Jual Harga Jujur<br><span class="white-color font-weak">Barokah</span></h1>
 							<button class="primary-btn">Shop Now</button>
 						</div>
 					</div>
