@@ -460,6 +460,7 @@
 				<!-- home slick -->
 				<div id="home-slick">
 					<!-- banner -->
+					<?php ?>
 					<div class="banner banner-1">
 						<img src="./assets/img/banner01.jpg" alt="">
 						<div class="banner-caption text-center">
@@ -559,37 +560,45 @@
 			<!-- row -->
 			<div class="row">
 				<!-- banner -->
+				<?php  foreach ($hasil3 as $tampil) {  ?>
 				<div class="col-md-8">
 					<div class="banner banner-1">
-						<img src="./assets/img/banner13.jpg" alt="">
+						<img src="./assets/img/<?php echo $tampil->foto_banner ?>" alt="">
 						<div class="banner-caption text-center">
-							<h1 class="primary-color">HOT DEAL<br><span class="white-color font-weak">Up to 50% OFF</span></h1>
-							<button class="primary-btn">Shop Now</button>
+							<h1 class="primary-color"><?php echo $tampil->nama_banner ?><br><span class="white-color font-weak"></span></h1>
+							<button class="primary-btn">Beli Sekarang</button>
 						</div>
 					</div>
 				</div>
+
+				<?php } ?>
 				<!-- /banner -->
 
 				<!-- banner -->
+
+				<?php  foreach ($hasil4 as $tampil) {  ?>
 				<div class="col-md-4 col-sm-6">
 					<a class="banner banner-1" href="#">
-						<img src="./assets/img/banner11.jpg" alt="">
+						<img src="./assets/img/<?php echo $tampil->foto_banner ?>" alt="">
 						<div class="banner-caption text-center">
-							<h2 class="white-color">NEW COLLECTION</h2>
+							<h2 class="white-color"><?php echo $tampil->nama_banner; ?></h2>
 						</div>
 					</a>
 				</div>
+				<?php } ?>
 				<!-- /banner -->
 
 				<!-- banner -->
+				<?php  foreach ($hasil5 as $tampil) {  ?>
 				<div class="col-md-4 col-sm-6">
 					<a class="banner banner-1" href="#">
-						<img src="./assets/img/banner12.jpg" alt="">
+						<img src="./assets/img/<?php echo $tampil->foto_banner ?>" alt="">
 						<div class="banner-caption text-center">
-							<h2 class="white-color">NEW COLLECTION</h2>
+							<h2 class="white-color"><?php echo $tampil->nama_banner ?></h2>
 						</div>
 					</a>
 				</div>
+				<?php } ?>
 				<!-- /banner -->
 			</div>
 			<!-- /row -->
@@ -611,17 +620,15 @@
 					</div>
 				</div>
 				<!-- section title -->
-
 					<?php 
     foreach ($hasil2 as $tampil)
         {
       ?>  
-				<!-- Product Single -->
+		<!-- Product Single -->
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Harga Modal
-
 							<h4 class="product-price">Rp.<?php echo number_format($tampil->harga_modal) ?></h4>	
 							</button>
 							<img src="./assets/img/<?php echo $tampil->foto_barang ?>" id="images_last" alt="">

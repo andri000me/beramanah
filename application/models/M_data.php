@@ -37,5 +37,23 @@ public function tampil_last_product(){
 
 }
 
+public function tampil_kategori_itu(){
+	$this->db->limit(1);
+	$this->db->where('tempat','1');
+	return $this->db->get('banner');
+}
+
+
+public function tampil_kategori_itu2(){
+	$this->db->limit(1);
+	$this->db->where('tempat','2');
+	return $this->db->get('banner');
+}
+public function tampil_kategori_itu3(){
+	$this->db->limit(1);
+	$this->db->where('tempat','3');
+	return $this->db->get('banner');
+}
+
 }
 ?>
