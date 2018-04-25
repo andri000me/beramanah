@@ -55,5 +55,25 @@ public function tampil_kategori_itu3(){
 	return $this->db->get('banner');
 }
 
+public function tampil_kategori_itu4(){
+	$this->db->limit(1);
+	$this->db->where('tempat','4');
+	return $this->db->get('banner');
+}
+public function tampil_barang_fashion(){
+	$this->db->limit(3);
+	$this->db->order_by('tgl_barang', 'desc');
+	$this->db->where('id_kategori_brg','3');
+	$this->db->where('status','1');
+	return $this->db->get('barang');
+}
+public function tampil_barang_barokah(){
+	$this->db->limit(4);
+	$this->db->order_by('tgl_barang','desc');
+	$this->db->where('harga_jual' < 'harga_modal');
+	$this->db->where('status','1');
+	return $this->db->get('barang');
+}
+
 }
 ?>

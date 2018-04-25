@@ -14,6 +14,9 @@ class Home extends CI_Controller{
 		$data['hasil2'] = $this->M_data->tampil_last_product()->result();
 		$data['hasil4'] = $this->M_data->tampil_kategori_itu2()->result();
 		$data['hasil5'] = $this->M_data->tampil_kategori_itu3()->result();
+		$data['hasil6'] = $this->M_data->tampil_kategori_itu4()->result();
+		$data['barang_fashion'] = $this->M_data->tampil_barang_fashion()->result();
+		$data['barang_barokah'] = $this->M_data->tampil_barang_barokah()->result();	
 		$this->load->view('Home/Header',$data);	}
 }
 ?>

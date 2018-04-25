@@ -623,8 +623,7 @@
 					<?php 
     foreach ($hasil2 as $tampil)
         {
-      ?>  
-		<!-- Product Single -->
+      ?><!-- Product Single -->
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">
@@ -634,13 +633,44 @@
 							<img src="./assets/img/<?php echo $tampil->foto_barang ?>" id="images_last" alt="">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">Rp.<?php echo number_format($tampil->harga_jual) ?></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
+							<h3 class="product-price">Rp. <?php echo number_format($tampil->harga_jual) ?></h3>
+							<div class="product-rating"> 
+								<?php if($tampil->liked >= 20 && $tampil->liked <= 29){
+									echo "<i class='fa fa-star'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									
+								}else if($tampil->liked >= 30 && $tampil->liked <=49){
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+								}else if($tampil->liked >= 50 && $tampil->liked <=69){
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+								}else if ($tampil->liked >= 70 && $tampil->liked <=80) {
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+								}else {
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									";
+								}
+								?>
 							</div>
 							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
@@ -659,108 +689,86 @@
 			<!-- row -->
 			<div class="row">
 				<!-- banner -->
+				<?php foreach ($hasil6 as $tampil) { ?>
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="banner banner-2">
-						<img src="./assets/img/banner15.jpg" alt="">
+						<img src="./assets/img/<?php echo $tampil->foto_banner ?>"  alt="" >
 						<div class="banner-caption">
-							<h2 class="white-color">NEW<br>COLLECTION</h2>
-							<button class="primary-btn">Shop Now</button>
+							<h2 class="white-color"><?php echo $tampil->nama_banner ?></h2>
+							<button class="primary-btn">BELI SEKARANG</button>
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 				<!-- /banner -->
-
+				<?php foreach ($barang_fashion as $tampil) {
+				?>
 				<!-- Product Single -->
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">
 							<div class="product-label">
-								<span>New</span>
+								<span>BARU</span>
 								<span class="sale">-20%</span>
 							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product07.jpg" alt="">
+							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Harga Modal
+							<h4 class="product-price">Rp.<?php echo number_format($tampil->harga_modal) ?></h4>	
+							</button>
+							<img src="./assets/img/<?php echo $tampil->foto_barang ?>" id="images_last2" alt="">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
+							<h3 class="product-price">Rp. <?php echo number_format($tampil->harga_jual) ?> <del class="product-old-price">$45.00</del></h3>
+							<div class="product-rating"> 
+								<?php if($tampil->liked <= 20 && $tampil->liked <= 29){
+									echo "<i class='fa fa-star'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									
+								}else if($tampil->liked >= 30 && $tampil->liked <=49){
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+								}else if($tampil->liked >= 50 && $tampil->liked <=69){
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									";
+									echo "<i class='fa fa-star-o empty'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+								}else if ($tampil->liked >= 70 && $tampil->liked <=80) {
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>";
+									echo "<i class='fa fa-star-o empty'></i>";
+								}else {
+									echo "<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									<i class='fa fa-star'></i>
+									";
+								}
+								?>
 							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
 								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> KERANJANG</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- /Product Single -->
+				<?php } ?>
+		
 
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product06.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product05.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<!-- /Product Single -->
 			</div>
 			<!-- /row -->
@@ -770,12 +778,17 @@
 				<!-- section title -->
 				<div class="col-md-12">
 					<div class="section-title">
-						<h2 class="title">Picked For You</h2>
+						<h2 class="title">JUALAN BARANG BAROKAH</h2>
+						<br/>
+						<h4>Menjual Barang Dibawah Harga Modal</h4>
 					</div>
 				</div>
 				<!-- section title -->
 
 				<!-- Product Single -->
+				<?php foreach ($barang_barokah as $tampil) {
+				
+				 ?>
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">
@@ -800,97 +813,9 @@
 						</div>
 					</div>
 				</div>
-				<!-- /Product Single -->
+				<?php } ?>
+				<!--  /Product Single -->
 
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product03.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product02.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product01.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-							</div>
-						</div>
-					</div>
-				</div>
 				<!-- /Product Single -->
 			</div>
 			<!-- /row -->
@@ -916,7 +841,7 @@
 						</div>
 						<!-- /footer logo -->
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+						<p>Menjual Barang dengan marketing anti riba dan melandaskan kejujuran</p>
 
 						<!-- footer social -->
 						<ul class="footer-social">
