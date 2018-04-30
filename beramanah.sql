@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2018 at 05:18 AM
+-- Generation Time: Apr 30, 2018 at 11:42 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -41,10 +41,10 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`id_banner`, `nama_banner`, `tempat`, `foto_banner`, `link_banner`) VALUES
-(1, 'HOT DEAL', '1', 'banner13.jpg', 'link'),
+(1, 'HOT DEAL', '1', 'banner13.jpg', 'http://localhost/beramanah/#'),
 (2, 'KOLEKSI TERBARU', '2', 'banner11.jpg', 'link'),
 (3, 'KOLESKI TERMURAH', '3', 'banner12.jpg', 'link'),
-(4, 'KOLEKSI TERFAVORIT', '4', 'banner15.jpg', 'LINK');
+(4, 'KOLEKSI FASHION', '4', 'banner15.jpg', 'LINK');
 
 -- --------------------------------------------------------
 
@@ -74,11 +74,15 @@ CREATE TABLE `barang` (
 INSERT INTO `barang` (`id_barang`, `id_user`, `nama_barang`, `id_kategori_brg`, `deskripsi_barang`, `foto_barang`, `stok`, `harga_modal`, `harga_jual`, `tgl_barang`, `status`, `liked`) VALUES
 (1, '1', 'Jam Tangan Swis Army', '3', 'Jam Tangan Army', 'Jam-tangan-Swiss-Army-SA-5038MB-Coklat-1.jpg', '5', '1200000', '1300000', '2018-04-24 13:30:19', '1', 3),
 (2, '1', 'Tas Pollo', '3', 'Tas Pollo', '76298_d1e2dbe2-eb1f-11e4-a52f-eb2e87772fba.jpg', '5', '300000', '350000', '2018-04-24 10:29:16', '1', 6),
-(3, '1', 'Jaket Parka ', '3', 'Jaket Parka', '634409_454cf808-2bdd-4d68-a373-3dc3c8484ec9.jpg', '30', '2300000', '2500000', '2018-04-24 11:38:14', '0', 30),
+(3, '1', 'Jaket Parka ', '3', 'Jaket Parka', '634409_454cf808-2bdd-4d68-a373-3dc3c8484ec9.jpg', '30', '2300000', '2500000', '2018-04-24 11:38:14', '1', 30),
 (4, '1', 'Xiaomi 5A', '4', 'Jual Murah', 'xiaomi-redmi-note-5a-gold_4_3.jpg', '30', '1000000', '1200000', '2018-04-24 11:14:12', '1', 37),
 (5, '1', 'Xiaomi Band 2', '4', 'Jam Tangan Kesehatan', '1510292015098740751.JPG', '40', '300000', '340000', '2018-04-24 06:28:15', '1', 20),
 (6, '1', 'Laptop Thinkpad T410', '4', 'Laptop', 'b57267eb44b89374366cf9aca34b.jpeg', '3', '2500000', '2650000', '2018-04-24 20:17:23', '1', 24),
-(7, '1', 'TAS Cantik', '3', 'Tas Wanita Cantik', 'product07.jpg', '40', '450000', '500000', '2018-04-25 04:18:12', '1', 55);
+(7, '1', 'TAS Cantik', '3', 'Tas Wanita Cantik', 'product07.jpg', '40', '450000', '500000', '2018-04-25 04:18:12', '1', 55),
+(8, '', 'Sepatu Snekers', '3', 'Sepatu', 'product04.jpg', '30', '450000', '430000', '2018-04-25 05:32:59', '1', 90),
+(9, '1', 'Jam Tangan Cantik', '3', 'Jam Tangan', 'product02.jpg', '20', '340000', '300000', '2018-04-25 05:36:17', '1', 70),
+(10, '', 'Ikat Pinggang Kulit', '3', 'Ikat Pinggang', 'product08.jpg', '30', '80000', '70000', '2018-04-25 09:00:00', '1', 100),
+(11, '1', 'Dompet Kulit', '3', 'Dompet', 'product03.jpg', '30', '120000', '130000', '2018-04-25 11:00:00', '1', 40);
 
 -- --------------------------------------------------------
 
@@ -210,7 +214,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_barang` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `Kategori_barang`

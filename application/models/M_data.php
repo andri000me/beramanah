@@ -25,6 +25,7 @@ public function barang($id)
     $this->db->order_by('liked','DESC');        
     $this->db->where('id_kategori_brg', $id);
     $this->db->where('status','1');
+    $this->db->limit(3);
     $query = $this->db->get('barang');
     return $query->result();
 }
@@ -64,15 +65,12 @@ public function tampil_barang_fashion(){
 	$this->db->limit(3);
 	$this->db->order_by('tgl_barang', 'desc');
 	$this->db->where('id_kategori_brg','3');
+	$this->db->where('liked > 80');
 	$this->db->where('status','1');
 	return $this->db->get('barang');
 }
 public function tampil_barang_barokah(){
-	$this->db->limit(4);
-	$this->db->order_by('tgl_barang','desc');
-	$this->db->where('harga_jual' < 'harga_modal');
-	$this->db->where('status','1');
-	return $this->db->get('barang');
+	return $this->db->query("SELECT barang.nama_barang, barang.id_kategori_brg, barang.foto_barang, barang.harga_modal, barang.harga_jual, barang.tgl_barang, barang.status, barang.liked from barang where barang.harga_jual <= harga_modal and barang.status ='1' ");
 }
 
 }

@@ -787,16 +787,20 @@
 
 				<!-- Product Single -->
 				<?php foreach ($barang_barokah as $tampil) {
+
 				
 				 ?>
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="./assets/img/product04.jpg" alt="">
+							
+							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Harga Modal
+							<h4 class="product-price">Rp.<?php echo number_format($tampil->harga_modal) ?></h4>	
+							</button>
+							<img src="./assets/img/<?php echo $tampil->foto_barang ?>" alt="">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
+							<h3 class="product-price">Rp. <?php echo number_format($tampil->harga_jual) ?></h3>
 							<div class="product-rating">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
@@ -804,11 +808,10 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
 								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> KERANJANG</button>
 							</div>
 						</div>
 					</div>
