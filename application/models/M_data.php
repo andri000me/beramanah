@@ -73,5 +73,25 @@ public function tampil_barang_barokah(){
 	return $this->db->query("SELECT barang.nama_barang, barang.id_kategori_brg, barang.foto_barang, barang.harga_modal, barang.harga_jual, barang.tgl_barang, barang.status, barang.liked from barang where barang.harga_jual <= harga_modal and barang.status ='1' ");
 }
 
+public function tampil_produk_all(){
+	return $this->db->get('barang')->result();
+}
+public function tampil_top_produk_limit_3(){
+	$this->db->limit(3);
+	return $this->db->get('barang')->result();
+}
+function searchMessages($string,$string2){
+    $this->load->database();
+    $query = $this->db->query("SELECT * FROM barang WHERE nama_barang  LIKE '%$string%' AND id_kategori_brg LIKE '%$string2%'");
+    return $query->result();
+    }
+
+function searchMessages2($string){
+    $this->load->database();
+    $query = $this->db->query("SELECT * FROM barang WHERE id_kategori_brg LIKE '%$string%'");
+    return $query->result();
+    }
+
+
 }
 ?>

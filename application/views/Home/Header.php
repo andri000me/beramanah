@@ -87,11 +87,11 @@
 
 					<!-- Search -->
 					<div class="header-search">
-						<form>
-							<input class="input search-input" type="text" placeholder="Masukan Kata Kunci">
-							<select class="input search-categories" style="width: 140px;">
+					<form action="<?php echo site_url('Search/Seach_produk'); ?>" method = "get">
+						 <input type="text" class="input search-input" value="<?php echo isset($search_value) ? $search_value : ''?>" name="keyword"  required>
+							<select class="input search-categories" name="category" style="width: 140px;">
 
-								<option value="0">Semua Kategori</option>
+								<option value="">Semua Kategori</option>
 											<?php 
     foreach ($hasil as $category)
         {
@@ -100,7 +100,7 @@
 
 <?php } ?>
 							</select>
-							<button class="search-btn"><i class="fa fa-search"></i></button>
+							<button value="Search" type="submit" class="search-btn"><i class="fa fa-search"></i></button>
 						</form>
 					</div>
 					<!-- /Search -->
@@ -232,7 +232,7 @@
 	<?php if($category->mode == '1'){ ?>
 	<li class="dropdown side-dropdown">
 
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">  <?php echo $category->nama_kategori_brg ?><i class="fa fa-angle-right"></i></a>
+							<a href="<?php echo base_url() ?>Search/Seach_produk?pilih=<?php echo $category->id_kategori_brg ?>" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">  <?php echo $category->nama_kategori_brg ?><i class="fa fa-angle-right"></i></a>
 							<div class="custom-menu">
 								<div class="row">
    
@@ -271,6 +271,8 @@
 
         }
         ?>
+        <center>
+										<h5><a href="<?php echo base_url() ?>Search/Seach_produk?pilih=<?php echo $category->id_kategori_brg ?>">Lihat Selengkapnya</a></h5></center>
         					</div>
 							</div>
 						</li>
@@ -278,7 +280,7 @@
         <?php } else { ?>
 
 
-						<li><a href="#"><?php echo $category->nama_kategori_brg;?></a></li>
+						<li><a href="<?php echo base_url() ?>Search/Seach_produk?pilih=<?php echo $category->id_kategori_brg ?>"><?php echo $category->nama_kategori_brg;?></a></li>
 
 
         <?php } ?>
@@ -293,147 +295,10 @@
 				<div class="menu-nav">
 					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
 					<ul class="menu-list">
-						<li><a href="#">Beranda</a></li>
-						<li><a href="#">Belanja</a></li>
-						<li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women <i class="fa fa-caret-down"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#te">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-										<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="row hidden-sm hidden-xs">
-									<div class="col-md-12">
-										<hr>
-										<a class="banner banner-1" href="#">
-											<img src="./assets/img/banner05.jpg" alt="">
-											<div class="banner-caption text-center">
-												<h2 class="white-color">NEW COLLECTION</h2>
-												<h3 class="white-color font-weak">HOT DEAL</h3>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="dropdown mega-dropdown full-width"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Men <i class="fa fa-caret-down"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="./assets/img/banner06.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Women’s</h3>
-												</div>
-											</a>
-											<hr>
-										</div>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="./assets/img/banner07.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Men’s</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="./assets/img/banner08.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Accessories</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-									<div class="col-md-3">
-										<div class="hidden-sm hidden-xs">
-											<a class="banner banner-1" href="#">
-												<img src="./assets/img/banner09.jpg" alt="">
-												<div class="banner-caption text-center">
-													<h3 class="white-color text-uppercase">Bags</h3>
-												</div>
-											</a>
-										</div>
-										<hr>
-										<ul class="list-links">
-											<li>
-												<h3 class="list-links-title">Categories</h3></li>
-											<li><a href="#">Women’s Clothing</a></li>
-											<li><a href="#">Men’s Clothing</a></li>
-											<li><a href="#">Phones & Accessories</a></li>
-											<li><a href="#">Jewelry & Watches</a></li>
-											<li><a href="#">Bags & Shoes</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
+						<li><a href="./">Beranda</a></li>
+						<li><a href="./Produk">Semua Produk</a></li>
+						<li><a href="./Penjual">Penjual</a></li>
+						
 						<li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages <i class="fa fa-caret-down"></i></a>
 							<ul class="custom-menu">
 								<li><a href="index.html">Home</a></li>

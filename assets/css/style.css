@@ -1773,6 +1773,19 @@ textarea.input {
     margin-right: 0;
   }
  }
+#images_produk_all {
+   width: 270px;
+  height: 360px;
+  object-fit: cover;
+
+  &:nth-child(2n) {
+    clear: left;
+  }
+  
+  &:nth-child(2n+1){
+    margin-right: 0;
+  }
+}
 
 #bannerku {
   padding: 10px;
