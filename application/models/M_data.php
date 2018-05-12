@@ -16,8 +16,36 @@ class M_data extends CI_Model{
     }
     return $return;
 }
+function ambil_id_user($table,$where){
+	return $this->db->get_where($table,$where);
+}
 
+function tampil_id_user($id_user)
+{
+		$this->db->where('username', $id_user);
+		return $this->db->get('User');
+}
 
+	function cek_login($table,$where){		
+		return $this->db->get_where($table,$where);
+	}
+
+function get_all_produk(){
+		$hasil=$this->db->get('barang');
+		return $hasil->result();
+	}
+		function pilih_produk($id){
+		//$where="id=".$id;
+		$this->db->where('id_barang', $id);
+		return $this->db->get('barang');
+	}
+		
+public function rekomendasi(){
+	$this->db->limit(4);
+	$this->db->order_by('tgl_barang','desc');
+	return $this->db->get('barang');
+
+}
 
 
 public function barang($id)
@@ -36,6 +64,11 @@ public function tampil_last_product(){
 	$this->db->where('status','1');
 	return $this->db->get('barang');
 
+}
+public function tampil_slider(){
+	$this->db->limit(3);
+	$this->db->order_by('urutan','desc');
+	return $this->db->get('Slider');
 }
 
 public function tampil_kategori_itu(){
@@ -70,7 +103,7 @@ public function tampil_barang_fashion(){
 	return $this->db->get('barang');
 }
 public function tampil_barang_barokah(){
-	return $this->db->query("SELECT barang.nama_barang, barang.id_kategori_brg, barang.foto_barang, barang.harga_modal, barang.harga_jual, barang.tgl_barang, barang.status, barang.liked from barang where barang.harga_jual <= harga_modal and barang.status ='1' ");
+	return $this->db->query("SELECT barang.id_barang, barang.nama_barang, barang.id_kategori_brg, barang.foto_barang, barang.harga_modal, barang.harga_jual, barang.tgl_barang, barang.status, barang.liked from barang where barang.harga_jual <= harga_modal and barang.status ='1' ");
 }
 
 public function tampil_produk_all(){

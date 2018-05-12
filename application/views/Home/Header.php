@@ -1,218 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-	<title>Beramanah</title>
-
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
-
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-
-	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="./assets/css/slick.css" />
-	<link type="text/css" rel="stylesheet" href="./assets/css/slick-theme.css" />
-
-	<!-- nouislider -->
-	<link type="text/css" rel="stylesheet" href="./assets/css/nouislider.min.css" />
-
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="./assets/css/font-awesome.min.css">
-
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-</head>
-
-<body>
-	<!-- HEADER -->
-	<header>
-		<!-- top Header -->
-		<div id="top-header">
-			<div class="container">
-				<div class="pull-left">
-					<span>Jual Beli barang yang jujur dan barokah!</span>
-				</div>
-				<div class="pull-right">
-					<ul class="header-top-links">
-						<li><a href="#">Store</a></li>
-						<li><a href="#">Newsletter</a></li>
-						<li><a href="#">FAQ</a></li>
-						<li class="dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ENG <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="#">English (ENG)</a></li>
-								<li><a href="#">Russian (Ru)</a></li>
-								<li><a href="#">French (FR)</a></li>
-								<li><a href="#">Spanish (Es)</a></li>
-							</ul>
-						</li>
-						<li class="dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="#">USD ($)</a></li>
-								<li><a href="#">EUR (€)</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- /top Header -->
-
-		<!-- header -->
-		<div id="header">
-			<div class="container">
-				<div class="pull-left">
-					<!-- Logo -->
-					<div class="header-logo" style="width: 200px;">
-						<a class="logo" href="#">
-							<img src="./assets/img/logo.png" alt="" width="10px">
-						</a>
-					</div>
-					<!-- /Logo -->
-
-					<!-- Search -->
-					<div class="header-search">
-					<form action="<?php echo site_url('Search/Seach_produk'); ?>" method = "get">
-						 <input type="text" class="input search-input" value="<?php echo isset($search_value) ? $search_value : ''?>" name="keyword"  required>
-							<select class="input search-categories" name="category" style="width: 140px;">
-
-								<option value="">Semua Kategori</option>
-											<?php 
-    foreach ($hasil as $category)
-        {
-      ?>  
-								<option value="<?php echo $category->id_kategori_brg ?>"><?php echo $category->nama_kategori_brg ?></option>
-
-<?php } ?>
-							</select>
-							<button value="Search" type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-						</form>
-					</div>
-					<!-- /Search -->
-				</div>
-				<div class="pull-right">
-					<ul class="header-btns">
-						<!-- Account -->
-						<li class="header-account dropdown default-dropdown">
-							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
-									<i class="fa fa-user-o"></i>
-								</div>
-								<strong class="text-uppercase">Akun Saya <i class="fa fa-caret-down"></i></strong>
-							</div>
-							<a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
-							<ul class="custom-menu">
-								<li><a href="#"><i class="fa fa-user-o"></i> Akun Saya</a></li>
-								<li><a href="#"><i class="fa fa-heart-o"></i> Wishlist</a></li>
-								<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
-								<li><a href="#"><i class="fa fa-unlock-alt"></i> Login</a></li>
-								<li><a href="#"><i class="fa fa-user-plus"></i> Create An Account</a></li>
-							</ul>
-						</li>
-						<!-- /Account -->
-
-						<!-- Cart -->
-						<li class="header-cart dropdown default-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
-									<i class="fa fa-shopping-cart"></i>
-									<span class="qty">3</span>
-								</div>
-								<strong class="text-uppercase">Keranjang:</strong>
-								<br>
-								<span>35.20$</span>
-							</a>
-							<div class="custom-menu">
-								<div id="shopping-cart">
-									<div class="shopping-cart-list">
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./assets/img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./assets/img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./assets/img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./assets/img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./assets/img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
-									</div>
-									<div class="shopping-cart-btns">
-										<button class="main-btn">View Cart</button>
-										<button class="primary-btn">Checkout <i class="fa fa-arrow-circle-right"></i></button>
-									</div>
-								</div>
-							</div>
-						</li>
-						<!-- /Cart -->
-
-						<!-- Mobile nav toggle-->
-						<li class="nav-toggle">
-							<button class="nav-toggle-btn main-btn icon-btn"><i class="fa fa-bars"></i></button>
-						</li>
-						<!-- / Mobile nav toggle -->
-					</ul>
-				</div>
-			</div>
-			<!-- header -->
-		</div>
-		<!-- container -->
-	</header>
-	<!-- /HEADER -->
 
 	<!-- NAVIGATION -->
 	<div id="navigation">
@@ -297,16 +83,7 @@
 					<ul class="menu-list">
 						<li><a href="./">Beranda</a></li>
 						<li><a href="./Produk">Semua Produk</a></li>
-						<li><a href="./Penjual">Penjual</a></li>
 						
-						<li class="dropdown default-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Pages <i class="fa fa-caret-down"></i></a>
-							<ul class="custom-menu">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="products.html">Products</a></li>
-								<li><a href="product-page.html">Product Details</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-							</ul>
-						</li>
 					</ul>
 				</div>
 				<!-- menu nav -->
@@ -316,6 +93,7 @@
 	</div>
 	<!-- /NAVIGATION -->
 
+		
 	<!-- HOME -->
 	<div id="home">
 		<!-- container -->
@@ -326,34 +104,20 @@
 				<div id="home-slick">
 					<!-- banner -->
 					<?php ?>
+					<?php foreach ($hasil7 as $tampil) {
+					
+					 ?>
 					<div class="banner banner-1">
-						<img src="./assets/img/banner01.jpg" alt="">
+						<img src="./assets/img/<?php echo $tampil->foto_slider ?>" alt="">
 						<div class="banner-caption text-center">
-							<h1>Bags sale</h1>
-							<h3 class="white-color font-weak">Up to 50% Discount</h3>
+							<h1 style="color: white"><?php echo $tampil->judul_slider ?></h1>
+							
 							<button class="primary-btn">Shop Now</button>
 						</div>
 					</div>
 					<!-- /banner -->
-
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="./assets/img/banner02.jpg" alt="">
-						<div class="banner-caption">
-							<h1 class="primary-color">Kami Jual Harga Jujur<br><span class="white-color font-weak">Barokah</span></h1>
-							<button class="primary-btn">Shop Now</button>
-						</div>
-					</div>
-					<!-- /banner -->
-
-					<!-- banner -->
-					<div class="banner banner-1">
-						<img src="./assets/img/banner03.jpg" alt="">
-						<div class="banner-caption">
-							<h1 class="white-color">New Product <span>Collection</span></h1>
-							<button class="primary-btn">Shop Now</button>
-						</div>
-					</div>
+<?php  } ?>
+					
 					<!-- /banner -->
 				</div>
 				<!-- /home slick -->
@@ -484,6 +248,7 @@
 						<h2 class="title">Produk Baru</h2>
 					</div>
 				</div>
+
 				<!-- section title -->
 					<?php 
     foreach ($hasil2 as $tampil)
@@ -537,10 +302,11 @@
 								}
 								?>
 							</div>
-							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
+							<h2 class="product-name"><a href="<?php echo base_url() ?>Pilih_produk/Halaman_produk/<?php echo $tampil->id_barang ?>"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
 								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Tambah Keranjang</button>
+								<input type="hidden" name="banyak" id="<?php echo $tampil->id_barang;?>" value="1" class="quantity form-control">
+								<button class="add_cart primary-btn add-to-cart" data-id_barang="<?php echo $tampil->id_barang;?>" data-nama_barang="<?php echo $tampil->nama_barang;?>" data-harga_jual="<?php echo $tampil->harga_jual;?>" data-toggle="modal" data-target="#tambah"><i class="fa fa-shopping-cart"></i>TambahKeranjang</button>
 							</div>
 						</div>
 					</div>
@@ -621,10 +387,11 @@
 								}
 								?>
 							</div>
-							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
+							<h2 class="product-name"><a href="<?php echo base_url() ?>Pilih_produk/Halaman_produk/<?php echo $tampil->id_barang ?>"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
 								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> KERANJANG</button>
+								<button class="add_cart primary-btn add-to-cart" data-id_barang="<?php echo $tampil->id_barang;?>" data-nama_barang="<?php echo $tampil->nama_barang;?>" data-harga_jual="<?php echo $tampil->harga_jual;?>" data-toggle="modal" data-target="#tambah"><i class="fa fa-shopping-cart"></i>TambahKeranjang
+								</button>
 							</div>
 						</div>
 					</div>
@@ -673,10 +440,10 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
+							<h2 class="product-name"><a href="<?php echo base_url() ?>Pilih_produk/Halaman_produk/<?php echo $tampil->id_barang ?>"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
 								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> KERANJANG</button>
+								<button class="add_cart primary-btn add-to-cart" data-id_barang="<?php echo $tampil->id_barang;?>" data-nama_barang="<?php echo $tampil->nama_barang;?>" data-harga_jual="<?php echo $tampil->harga_jual;?>" data-toggle="modal" data-target="#tambah"><i class="fa fa-shopping-cart"></i>TambahKeranjang</button>
 							</div>
 						</div>
 					</div>
@@ -788,16 +555,103 @@
 		</div>
 		<!-- /container -->
 	</footer>
+				
 	<!-- /FOOTER -->
+	<!-- Modal -->
+  <div class="modal fade" id="tambah" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <center>
+          <h4 class="modal-title">Menambahkan Di Keranjang</h4></center>	
+        </div>
+        <div class="modal-body">
+        	<center>
+          <p>Berhasil Menambahkan Dikeranjang</p>
+          <img src="./assets/img/as.jpg" class="img-responsive" width="300px">
+          </center>
+        </div>
+        <div class="modal-footer">
+        	<center>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Oke</button>
+      </center>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="modal fade" id="hapus" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <center>
+          <h4 class="modal-title">Menghapus Data Dikeranjang</h4>
+      </center>
+        </div>
+        <div class="modal-body">
+        	<center>
+          <p>Berhasil Menghapus Dikeranjang</p></center>
+          <center><img src="./assets/img/bag.png" width="200px;"></center>
+        </div>
+        <div class="modal-footer">
+          <center>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Oke</button>
+      </center>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 
 	<!-- jQuery Plugins -->
 	<script src="./assets/js/jquery.min.js"></script>
-	<script src="./assets/js/bootstrap.min.js"></script>
 	<script src="./assets/js/slick.min.js"></script>
 	<script src="./assets/js/nouislider.min.js"></script>
 	<script src="./assets/js/jquery.zoom.min.js"></script>
 	<script src="./assets/js/main.js"></script>
 
+
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-2.2.3.min.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.add_cart').click(function(){
+			var id_barang    = $(this).data("id_barang");
+			var nama_barang  = $(this).data("nama_barang");
+			var harga_jual = $(this).data("harga_jual");
+			var banyak     = $('#' + id_barang).val();
+			$.ajax({
+				url : "<?php echo base_url();?>Home/add_to_cart",
+				method : "POST",
+				data : {id_barang: id_barang,nama_barang: nama_barang, harga_jual: harga_jual, banyak: banyak},
+				success: function(data){
+					$('#detail_cart').html(data);
+				}	
+			});
+		});
+
+		// Load shopping cart
+		$('#detail_cart').load("<?php echo base_url();?>index.php/Home/load_cart");
+
+		//Hapus Item Cart
+		$(document).on('click','.hapus_cart',function(){
+			var row_id=$(this).attr("id"); //mengambil row_id dari artibut id
+			$.ajax({
+				url : "<?php echo base_url();?>Home/hapus_cart",
+				method : "POST",
+				data : {row_id : row_id},
+				success :function(data){
+					$('#detail_cart').html(data);
+				}
+			});
+		});
+	});
+</script>
 </body>
 
 </html>

@@ -1,6 +1,22 @@
+<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">Products</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
 
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
 				<!-- MAIN -->
-				<div id="main" class="col-md-9">
+				<div id="main" class="col-md-12">
 					<!-- store top filter -->
 					<div class="store-filter clearfix">
 						<div class="pull-left">
@@ -46,7 +62,7 @@
 							<?php foreach ($produk_all as $tampil) {
 						
 							 ?>
-							<div class="col-md-4 col-sm-6 col-xs-6">
+							<div class="col-md-3 col-sm-6 col-xs-6">
 								<div class="product product-single">
 									<div class="product-thumb">
 										<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Harga Modal
@@ -94,11 +110,13 @@
 								}
 								?>
 							</div>
-							<h2 class="product-name"><a href="#"><?php echo $tampil->nama_barang ?></a></h2>
+							<h2 class="product-name"><a href="<?php echo base_url() ?>Pilih_produk/Halaman_produk/<?php echo $tampil->id_barang ?>"><?php echo $tampil->nama_barang ?></a></h2>
 							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Tambah Keranjang</button>
-							</div>
+											<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+											<input type="hidden" name="banyak" id="<?php echo $tampil->id_barang;?>" value="1" class="quantity form-control">
+											<button class="add_cart primary-btn add-to-cart" data-id_barang="<?php echo $tampil->id_barang;?>" data-nama_barang="<?php echo $tampil->nama_barang;?>" data-harga_jual="<?php echo $tampil->harga_jual;?>" data-toggle="modal" data-target="#tambah"><i class="fa fa-shopping-cart"></i>TambahKeranjang</button>
+										</div>
+
 						</div>
 								</div>
 							</div>

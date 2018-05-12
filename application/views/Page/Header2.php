@@ -115,10 +115,13 @@
 								<div class="header-btns-icon">
 									<i class="fa fa-user-o"></i>
 								</div>
-								<strong class="text-uppercase">Akun Saya <i class="fa fa-caret-down"></i></strong>
+								<strong class="text-uppercase" style="float: left;">
+	<p><?php echo $this->session->userdata("nama"); ?></p></strong>
+	<?php  foreach ($hasil8 as $tampil){ ?>  
+<?php echo $tampil->id_user ?>
+<?php } ?>
 							</div>
 							
-							<a href="<?php echo base_url() ?>Produk/Login" class="text-uppercase">Login</a> / <a href="<?php echo base_url() ?>Produk/Login" class="text-uppercase">Join</a>
 							<ul class="custom-menu">
 								<li><a href="#"><i class="fa fa-user-o"></i> Akun Saya</a></li>
 								<li><a href="#"><i class="fa fa-heart-o"></i> Wishlist</a></li>
