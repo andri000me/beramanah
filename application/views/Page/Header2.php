@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>E-SHOP HTML Template</title>
+	<title>Beramanah</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
@@ -24,9 +24,10 @@
 	<!-- nouislider -->
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/nouislider.min.css" />
 
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/akun.css">
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/font-awesome.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css" />
 
@@ -46,7 +47,7 @@
 		<div id="top-header">
 			<div class="container">
 				<div class="pull-left">
-					<span>Welcome to E-shop!</span>
+					<span>Jual Beli barang yang jujur dan barokah!</span>
 				</div>
 				<div class="pull-right">
 					<ul class="header-top-links">
@@ -117,17 +118,19 @@
 								</div>
 								<strong class="text-uppercase" style="float: left;">
 	<p><?php echo $this->session->userdata("nama"); ?></p></strong>
-	<?php  foreach ($hasil8 as $tampil){ ?>  
-<?php echo $tampil->id_user ?>
-<?php } ?>
+
+
 							</div>
-							
+<?php  foreach ($hasil8 as $tampil){ ?>  
+
 							<ul class="custom-menu">
-								<li><a href="#"><i class="fa fa-user-o"></i> Akun Saya</a></li>
-								<li><a href="#"><i class="fa fa-heart-o"></i> Wishlist</a></li>
-								<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
-							</ul>
-						</li>
+								<li><a href="<?php echo base_url() ?>Produk/Akun/<?php echo $tampil->id_user ?>
+"><i class="fa fa-user-o"></i> Akun Saya</a></li>
+								<?php } ?>
+								<li><a href="<?php echo base_url() ?>/Produk/Check_out"><i class="fa fa-check"></i> Checkout</a></li>
+								<li><a href="<?php echo base_url() ?>Home/logout"><i class="fa fa-sign-out"></i>Log out</a></li>
+
+							</ul>						</li>
 						<!-- /Account -->
 
 						<!-- Cart -->

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>E-SHOP HTML Template</title>
+	<title>Beramanah</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
@@ -46,7 +46,7 @@
 		<div id="top-header">
 			<div class="container">
 				<div class="pull-left">
-					<span>Welcome to E-shop!</span>
+					<span>Jual Beli barang yang jujur dan barokah!</span>
 				</div>
 				<div class="pull-right">
 					<ul class="header-top-links">
@@ -119,11 +119,7 @@
 							</div>
 							
 							<a href="<?php echo base_url() ?>Produk/Login" class="text-uppercase">Login</a> / <a href="<?php echo base_url() ?>Produk/Login" class="text-uppercase">Join</a>
-							<ul class="custom-menu">
-								<li><a href="#"><i class="fa fa-user-o"></i> Akun Saya</a></li>
-								<li><a href="#"><i class="fa fa-heart-o"></i> Wishlist</a></li>
-								<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
-							</ul>
+							
 						</li>
 						<!-- /Account -->
 

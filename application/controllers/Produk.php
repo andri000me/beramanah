@@ -15,11 +15,13 @@ class Produk extends CI_Controller{
 		$data['rekomendasi'] = $this->M_data->rekomendasi()->result();
 		$data['pilih_produk'] =$this->M_data->pilih_produk($id)->result();
 		$id_usr = $this->session->userdata("nama");
+
+		$data['riwayat'] = $this->M_data->tampil_riwayat_belanja($id)->result();
 		$data['hasil8'] = $this->M_data->tampil_id_user($id_usr)->result();
 		$data['tampil_top'] = $this->M_data->tampil_top_produk_limit_3();
 
 		if($this->session->userdata('status') != "login"){
-			$this->load->view('Page/Header');
+			$this->load->view('Page/Header',$data);
                         $this->session->set_userdata('username','1');
 		}else {
 			$this->load->view('Page/Header2',$data);

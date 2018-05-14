@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 30, 2018 at 11:42 AM
+-- Generation Time: May 14, 2018 at 09:54 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -79,9 +79,9 @@ INSERT INTO `barang` (`id_barang`, `id_user`, `nama_barang`, `id_kategori_brg`, 
 (5, '1', 'Xiaomi Band 2', '4', 'Jam Tangan Kesehatan', '1510292015098740751.JPG', '40', '300000', '340000', '2018-04-24 06:28:15', '1', 20),
 (6, '1', 'Laptop Thinkpad T410', '4', 'Laptop', 'b57267eb44b89374366cf9aca34b.jpeg', '3', '2500000', '2650000', '2018-04-24 20:17:23', '1', 24),
 (7, '1', 'TAS Cantik', '3', 'Tas Wanita Cantik', 'product07.jpg', '40', '450000', '500000', '2018-04-25 04:18:12', '1', 55),
-(8, '', 'Sepatu Snekers', '3', 'Sepatu', 'product04.jpg', '30', '450000', '430000', '2018-04-25 05:32:59', '1', 90),
+(8, '1', 'Sepatu Snekers', '3', 'Sepatu', 'product04.jpg', '30', '450000', '430000', '2018-04-25 05:32:59', '1', 90),
 (9, '1', 'Jam Tangan Cantik', '3', 'Jam Tangan', 'product02.jpg', '20', '340000', '300000', '2018-04-25 05:36:17', '1', 70),
-(10, '', 'Ikat Pinggang Kulit', '3', 'Ikat Pinggang', 'product08.jpg', '30', '80000', '70000', '2018-04-25 09:00:00', '1', 100),
+(10, '1', 'Ikat Pinggang Kulit', '3', 'Ikat Pinggang', 'product08.jpg', '30', '80000', '70000', '2018-04-25 09:00:00', '1', 100),
 (11, '1', 'Dompet Kulit', '3', 'Dompet', 'product03.jpg', '30', '120000', '130000', '2018-04-25 11:00:00', '1', 40);
 
 -- --------------------------------------------------------
@@ -143,6 +143,39 @@ CREATE TABLE `Slider` (
   `urutan` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `Slider`
+--
+
+INSERT INTO `Slider` (`id_slider`, `judul_slider`, `foto_slider`, `urutan`) VALUES
+(1, 'Murah Meriah Bersyariah', 'banner03.jpg', '1'),
+(2, 'Kami Jual Harga Jujur', 'banner02.jpg', '2'),
+(3, 'Promo Menarik Selama ramdhan', 'banner01.jpg', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(5) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `id_barang` int(5) NOT NULL,
+  `harga` varchar(10) NOT NULL,
+  `status_transaksi` varchar(4) NOT NULL,
+  `tgl_transaksi` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `id_barang`, `harga`, `status_transaksi`, `tgl_transaksi`) VALUES
+(1, 1, 4, '1000000', '1', '2018-05-13'),
+(2, 1, 2, '300000', '0', '2018-05-13'),
+(3, 2, 1, '1200000', '0', '2018-05-13');
+
 -- --------------------------------------------------------
 
 --
@@ -153,12 +186,21 @@ CREATE TABLE `User` (
   `id_user` int(5) NOT NULL,
   `username` varchar(24) NOT NULL,
   `nama_user` varchar(24) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
   `email_user` varchar(30) NOT NULL,
   `password` varchar(25) NOT NULL,
   `foto_user` varchar(200) NOT NULL,
   `tgl_lahir` date NOT NULL,
   `status` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `User`
+--
+
+INSERT INTO `User` (`id_user`, `username`, `nama_user`, `alamat`, `email_user`, `password`, `foto_user`, `tgl_lahir`, `status`) VALUES
+(1, 'Nurchulis', 'nurchulis', '', 'nura3609@gmail.com', '12345', 'chulis.jpg', '2018-05-07', '1'),
+(2, 'Mantan', 'Mantan', '', 'mantan@gmail.com', 'mantan', 'mantan.jpg', '2018-05-01', '1');
 
 --
 -- Indexes for dumped tables
@@ -193,6 +235,12 @@ ALTER TABLE `lapak`
 --
 ALTER TABLE `Slider`
   ADD PRIMARY KEY (`id_slider`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
 
 --
 -- Indexes for table `User`
@@ -232,13 +280,19 @@ ALTER TABLE `lapak`
 -- AUTO_INCREMENT for table `Slider`
 --
 ALTER TABLE `Slider`
-  MODIFY `id_slider` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_slider` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

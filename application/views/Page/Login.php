@@ -138,7 +138,7 @@
         <div id="sectionA" class="tab-pane fade in active">
         <div class="innter-form">
             <form class="sa-innate-form" action="<?php echo base_url('Home/aksi_login'); ?>" method="post">
-            <label>Email Address</label>
+            <label>Username</label>
             <input type="text" name="username">
             <label>Password</label>
             <input type="password" name="password">

@@ -181,6 +181,7 @@
 		// Load shopping cart
 		$('#detail_cart').load("<?php echo base_url();?>index.php/Home/load_cart");
 				$('#detail_cart2').load("<?php echo base_url();?>index.php/Home/load_cart2");
+				$('#detail_cart3').load("<?php echo base_url();?>index.php/Home/load_cart3");
 
 
 		//Hapus Item Cart
@@ -210,6 +211,20 @@
 				}
 			});
 		});
+
+			$(document).on('click','.hapus_cart3',function(){
+			var row_id=$(this).attr("id"); //mengambil row_id dari artibut id
+			$.ajax({
+				url : "<?php echo base_url();?>Home/hapus_cart3",
+				method : "POST",
+				data : {row_id : row_id},
+				success :function(data){
+
+					$('#detail_cart3').html(data);
+				}
+			});
+		});
+
 	});
 </script>
 
@@ -231,6 +246,36 @@
     })
 }
 });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+		//iterate through each textboxes and add keyup
+		//handler to trigger sum event
+		$(".txt").each(function() {
+
+			$(this).keyup(function(){
+				calculateSum();
+			});
+		});
+
+	});
+
+	function calculateSum() {
+
+		var sum = 0;
+		//iterate through each textboxes and add the values
+		$(".txt").each(function() {
+
+			//add only if the value is number
+			if(!isNaN(this.value) && this.value.length!=0) {
+				sum += parseFloat(this.value);
+			}
+
+		});
+		//.toFixed() method will roundoff the final sum to 2 decimal places
+		$("#sum").html(sum.toFixed(2));
+	}
 </script>
 </body>
 

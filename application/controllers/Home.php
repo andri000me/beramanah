@@ -23,7 +23,7 @@ class Home extends CI_Controller{
 		$data['barang_barokah'] = $this->M_data->tampil_barang_barokah()->result();
 		
 		if($this->session->userdata('status') != "login"){
-			$this->load->view('Home/Atas');
+			$this->load->view('Home/Atas',$data);
                         $this->session->set_userdata('username','1');
 		}else {
 			$this->load->view('Home/Atas2',$data);
@@ -58,6 +58,40 @@ function show_cart2(){ //Fungsi untuk menampilkan Cart
 
 						<span class="price">'.number_format($items['subtotal']).'</span>
 				</li>
+
+			';
+		}
+		$output .= '
+
+		<li class="row totals">
+						<span class="itemName">Total:</span>
+						<span class="price">'.' Rp '.number_format($this->cart->total()).'</span>
+						<span class="order"> <a class="text-center">CHECKOUT</a></span>
+					</li>
+			
+		';
+		return $output;
+	}
+	function show_cart3(){ //Fungsi untuk menampilkan Cart
+		$output = '';
+		$no = 0;
+		foreach ($this->cart->contents() as $items) {
+			$no++;
+			$output .='
+				<tr>
+										<td class="thumb"><img src="./img/thumb-product01.jpg" alt=""></td>
+										<td class="details">
+											<a href="#">'.$items['name'].'</a>
+										
+										</td>
+										<td>
+										<input type="text" class="txt" name="txt">
+										</td>
+										<td class="total text-center"><strong class="primary-color">'.number_format($items['subtotal']).'</strong></td>
+
+										<td class="qty text-center"><input class="input" type="number" value="'.$items['qty'].'"></td>
+										<td class="text-right"><button  id="'.$items['rowid'].' data-toggle="modal" data-target="#hapus" class="hapus_cart3 main-btn icon-btn"><i class="fa fa-close"></i></button></td>
+					</tr>				
 
 			';
 		}
@@ -109,6 +143,19 @@ function show_cart2(){ //Fungsi untuk menampilkan Cart
 	function load_cart2(){ //load data cart
 		echo $this->show_cart2();
 	}
+	function load_cart3(){ //load data cart
+		echo $this->show_cart3();
+	}
+
+			function hapus_cart3(){ //fungsi untuk menghapus item cart
+		$data = array(
+			'rowid' => $this->input->post('row_id'), 
+			'qty' => 0, 
+		);
+		$this->cart->update($data);
+		echo $this->show_cart3();
+	}
+
 
 	function hapus_cart(){ //fungsi untuk menghapus item cart
 		$data = array(

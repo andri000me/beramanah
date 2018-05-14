@@ -15,7 +15,7 @@ class Search extends CI_Controller{
 		$data['produk_all'] = $this->M_data->tampil_produk_all();
         $data['tampil_top'] = $this->M_data->tampil_top_produk_limit_3();
 		if($this->session->userdata('status') != "login"){
-            $this->load->view('Page/Header');
+            $this->load->view('Page/Header',$data);
                         $this->session->set_userdata('username','1');
         }else {
             $this->load->view('Page/Header2',$data);
@@ -28,6 +28,9 @@ class Search extends CI_Controller{
 
 		$data['hasil'] = $this->M_data->tampil_kategori_iki();
 		$data['produk_all'] = $this->M_data->tampil_produk_all();
+
+        $id_usr = $this->session->userdata("nama");
+        $data['hasil8'] = $this->M_data->tampil_id_user($id_usr)->result();
 		$data['tampil_top'] = $this->M_data->tampil_top_produk_limit_3();
     $this->load->model("M_data");
 
@@ -47,10 +50,10 @@ class Search extends CI_Controller{
         $data['results'] = array();
     }
     if($this->session->userdata('status') != "login"){
-            $this->load->view('Page/Header');
+            $this->load->view('Page/Header',$data);
                         $this->session->set_userdata('username','1');
         }else {
-            $this->load->view('Page/Header2');
+            $this->load->view('Page/Header2',$data);
         }
     $this->load->view("Page/Seach_produk", $data);
 	$this->load->view('Page/Footer');

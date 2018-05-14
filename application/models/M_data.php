@@ -25,6 +25,13 @@ function tampil_id_user($id_user)
 		$this->db->where('username', $id_user);
 		return $this->db->get('User');
 }
+function tampil_riwayat_belanja($id)
+{		$this->db->select('*');
+		$this->db->from('transaksi');
+		$this->db->join('barang', 'transaksi.id_barang = barang.id_barang');
+		$this->db->where('transaksi.id_user',$id);
+		return $query = $this->db->get();
+		}
 
 	function cek_login($table,$where){		
 		return $this->db->get_where($table,$where);

@@ -115,15 +115,16 @@
 								</div>
 								<strong class="text-uppercase" style="float: left;">
 	<p><?php echo $this->session->userdata("nama"); ?></p></strong>
-<?php  foreach ($hasil8 as $tampil){ ?>  
-<?php echo $tampil->id_user ?>
-<?php } ?>
+
 
 							</div>
+<?php  foreach ($hasil8 as $tampil){ ?>  
+
 							<ul class="custom-menu">
-								<li><a href="#"><i class="fa fa-user-o"></i> Akun Saya</a></li>
-								<li><a href="#"><i class="fa fa-heart-o"></i> Wishlist</a></li>
-								<li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
+								<li><a href="<?php echo base_url() ?>Produk/Akun/<?php echo $tampil->id_user ?>
+"><i class="fa fa-user-o"></i> Akun Saya</a></li>
+								<?php } ?>
+								<li><a href="<?php echo base_url() ?>/Produk/Check_out"><i class="fa fa-check"></i> Checkout</a></li>
 								<li><a href="<?php echo base_url() ?>Home/logout"><i class="fa fa-sign-out"></i>Log out</a></li>
 
 							</ul>
