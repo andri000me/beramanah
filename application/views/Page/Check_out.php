@@ -1,40 +1,42 @@
 <!-- container -->
-	
+
 	<div class="section">
 
 		<div class="container">
 			<!-- row -->
 			<div class="row">
 				<form id="checkout-form" class="clearfix">
-					<div class="col-md-6">
+
+<?php
+if($this->session->userdata("nama")){
+}else {
+	?>
+	<div class="col-md-12">
 						<div class="billing-details">
-							<p>Already a customer ? <a href="#">Login</a></p>
+							<p>Sudah Punya akun ? <a href="<?php echo base_url() ?>Produk/Login">Login</a></p>
 							<div class="section-title">
-								<h3 class="title">Billing Details</h3>
+								<h3 class="title">Masukan Data Diri</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
+								<input class="input" type="text" name="Nama Depan" placeholder="Masukan Nama depan Anda">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
+								<input class="input" type="text" name="Nama Belakang" placeholder="Masukan Nama Belakang Anda">
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="email" name="email" placeholder="Masukan Email">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="alamat" placeholder="Masukan Alamat Anda">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
+								<input class="input" type="text" name="kota" placeholder="Masukan Kota">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
+								<input class="input" type="text" name="Kodepos" placeholder="Masukan Kode Pos">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
+								<input class="input" type="tel" name="telepon" placeholder="Nomor Telepon">
 							</div>
 							<div class="form-group">
 								<div class="input-checkbox">
@@ -43,67 +45,17 @@
 									<div class="caption">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
 											<p>
-												<input class="input" type="password" name="password" placeholder="Enter Your Password">
+												<input class="input" type="password" name="password" placeholder="Masukan Password">
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-md-6">
-						<div class="shiping-methods">
-							<div class="section-title">
-								<h4 class="title">Shiping Methods</h4>
-							</div>
-							<div class="input-checkbox">
-								<input type="radio" name="shipping" id="shipping-1" checked>
-								<label for="shipping-1">Free Shiping -  $0.00</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										<p>
-								</div>
-							</div>
-							<div class="input-checkbox">
-								<input type="radio" name="shipping" id="shipping-2">
-								<label for="shipping-2">Standard - $4.00</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										<p>
-								</div>
-							</div>
-						</div>
 
-						<div class="payments-methods">
-							<div class="section-title">
-								<h4 class="title">Payments Methods</h4>
-							</div>
-							<div class="input-checkbox">
-								<input type="radio" name="payments" id="payments-1" checked>
-								<label for="payments-1">Direct Bank Transfer</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										<p>
-								</div>
-							</div>
-							<div class="input-checkbox">
-								<input type="radio" name="payments" id="payments-2">
-								<label for="payments-2">Cheque Payment</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										<p>
-								</div>
-							</div>
-							<div class="input-checkbox">
-								<input type="radio" name="payments" id="payments-3">
-								<label for="payments-3">Paypal System</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-										<p>
-								</div>
-							</div>
-						</div>
-					</div>
 
+
+<?php } ?>
 					<div class="col-md-12">
 						<div class="order-summary clearfix">
 							<div class="section-title">
@@ -114,24 +66,18 @@
 									<tr>
 										<th>Nama Produk</th>
 										<th></th>
-										<th class="text-center">Price</th>
-										<th class="text-center">Quantity</th>
-										<th class="text-center">Total</th>
-										<th class="text-right"></th>
+										<th class="text-center">Jumlah</th>
+										<th class="text-center">Sub Total</th>
 									</tr>
 								</thead>
 								<tbody id="detail_cart3">
-						
-									
-								
-									
+
+
+
+
 								</tbody>
 								<tfoot>
-			<tr id="summation">
-		<td>&nbsp;</td>
-		<td align="right">Sum :</td>
-		<td align="center"><span id="sum">0</span></td>
-	</tr>						<tr>
+							<tr>
 										<th class="empty" colspan="3"></th>
 										<th>SUBTOTAL</th>
 										<th colspan="2" class="sub-total">$97.50</th>

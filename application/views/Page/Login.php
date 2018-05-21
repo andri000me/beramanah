@@ -93,7 +93,7 @@
     padding:10px;
     border:1px solid#ccc;
     outline:none;
-    width:100%;    
+    width:100%;
 }
 .sa-innate-form input[type=submit]{
     border:1px solid#e64b3b;
@@ -108,7 +108,7 @@
     background:#db3b2b;
     color:#fff;
     }
-    
+
     .sa-innate-form button{
     border:1px solid#e64b3b;
     background:#e64b3b;
@@ -139,9 +139,9 @@
         <div class="innter-form">
             <form class="sa-innate-form" action="<?php echo base_url('Home/aksi_login'); ?>" method="post">
             <label>Username</label>
-            <input type="text" name="username">
+            <input type="text" name="username" required="Username">
             <label>Password</label>
-            <input type="password" name="password">
+            <input type="password" name="password" required="Password">
             <button type="submit">Sign In</button>
             <a href="">Forgot Password?</a>
             </form>
@@ -158,11 +158,18 @@
         </div>
         <div id="sectionB" class="tab-pane fade">
 			<div class="innter-form">
-            <form class="sa-innate-form" method="post">
-            <label>Name</label>
+            <form class="sa-innate-form" action="<?php echo base_url() ?>Home/daftar_user" method="post">
+            <label>Username</label>
             <input type="text" name="username">
-            <label>Email Address</label>
-            <input type="text" name="username">
+            <label>Nama User</label>
+            <input type="text" name="nama_user">
+            <label>Alamat</label>
+            <input type="text" name="alamat">
+            <label>Email Anda</label>
+            <input type="text" name="email">
+            <label>Tanggal Lahir</label>
+            <input type="Date" name="tgl_lahir">
+            <br/>
             <label>Password</label>
             <input type="password" name="password">
             <button type="submit">Join now</button>
@@ -181,4 +188,3 @@
     </div>
     </div>
     </div>
-

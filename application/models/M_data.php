@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 class M_data extends CI_Model{
-	
+
 
 	public function tampil_kategori_iki()
 {
@@ -12,13 +12,16 @@ class M_data extends CI_Model{
     {
         $return[$category->id_kategori_brg] = $category;
         $return[$category->id_kategori_brg]->subs = $this->barang($category->id_kategori_brg);
-     
+
     }
     return $return;
 }
 function ambil_id_user($table,$where){
 	return $this->db->get_where($table,$where);
 }
+function input_data_user($data,$table){
+		$this->db->insert($table,$data);
+	}
 
 function tampil_id_user($id_user)
 {
@@ -33,7 +36,7 @@ function tampil_riwayat_belanja($id)
 		return $query = $this->db->get();
 		}
 
-	function cek_login($table,$where){		
+	function cek_login($table,$where){
 		return $this->db->get_where($table,$where);
 	}
 
@@ -46,7 +49,7 @@ function get_all_produk(){
 		$this->db->where('id_barang', $id);
 		return $this->db->get('barang');
 	}
-		
+
 public function rekomendasi(){
 	$this->db->limit(4);
 	$this->db->order_by('tgl_barang','desc');
@@ -56,8 +59,8 @@ public function rekomendasi(){
 
 
 public function barang($id)
-{    
-    $this->db->order_by('liked','DESC');        
+{
+    $this->db->order_by('liked','DESC');
     $this->db->where('id_kategori_brg', $id);
     $this->db->where('status','1');
     $this->db->limit(3);
